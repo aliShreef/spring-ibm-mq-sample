@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  ibm-mq:
+    image: ibmcom/mq:latest
+    container_name: ibm-mq
+    environment:
+      - LICENSE=accept
+      - MQ_QMGR_NAME=QM1
+      - MQ_APP_USER=app
+      - MQ_APP_PASSWORD=passw0rd
+      - MQ_ADMIN_USER=admin
+      - MQ_ADMIN_PASSWORD=adminpass
+    ports:
+      - 1414:1414 # IBM MQ default port for messaging
+      - 9443:9443 # Web console port
+#    volumes:
+#      - ./mqsc:/etc/mqm/mqsc
